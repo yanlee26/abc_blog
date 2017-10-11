@@ -14,14 +14,14 @@ export default class Sidebar extends React.Component{
     render(){
         return(
             <div id="sidebar">
-                <h1><a href="">个人博客</a></h1>
-                <p>作者：<a href="">路</a></p>
-                <p>邮箱：12133131333</p>
+                <h1><a href="">simple blog</a></h1>
+                <p>author：<a href="">Franklyan</a></p>
+                <p>email：franklyan24@gmain.com</p>
                 <p>
-                    <Link to="/login">管理员登录</Link>
-                    {sessionStorage.getItem('__token__')&&sessionStorage.getItem('__username__')=='host'?<Link to='/write/new'>发表文章</Link>:null}
+                    <Link to="/login">admin login:</Link>
+                    {sessionStorage.getItem('__token__')&&sessionStorage.getItem('__username__')=='host'?<Link to='/write/new'>articles send</Link>:null}
                 </p>
-                <b style={{lineHeight:'40px'}}>目录：</b>
+                <b style={{lineHeight:'40px'}}>contents：</b>
                 <ol>
                     {this.props.articles.length>0?this.props.articles.map((item,index)=>(
                         <li key={index}><a onClick={(e) =>this.handleClick(e,item._id)}>{item.title}</a></li>
